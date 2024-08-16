@@ -33,9 +33,6 @@ public class LaraSamuelE1 {
                         System.out.println("No puede ingresar letras o decimales");
                         lea.nextLine();
                     }
-                    if(filas<=0){
-                        System.out.println("No puede ingresar numeros negativos");
-                    }
                 }while(filas<=0);
                 for(int contador=1;contador<=filas;contador++){
                     int suma=0;
