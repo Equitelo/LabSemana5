@@ -115,6 +115,7 @@ public class LaraSamuelE1 {
                     }while(!pregunta.equals("no")&&!pregunta.equals("si"));
                 }while(pregunta.equalsIgnoreCase("si"));
                 do{
+                    System.out.println("50 lps por tener una LIGHTBOX\n100 por una HDBOX\n150 si se tiene una DVRBOX.");
                     System.out.print("Que tipo de caja digital desea: ");
                     digital=lea.next().toUpperCase();
                 }while(!digital.equals("LIGHTBOX")&&!digital.equals("HDBOX")&&!digital.equals("DVRBOX"));
