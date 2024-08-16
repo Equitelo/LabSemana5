@@ -15,8 +15,13 @@ public class LaraSamuelE1 {
                 System.out.println("3 - CAJA");
                 System.out.println("4 - CARACTERES VOCALES");
                 System.out.println("5 - SALIR DEL SISTEMA");
+                try{
                 System.out.print("Ingresar opcion a realizar: ");
                 menu=lea.nextInt();
+                }catch(InputMismatchException e){
+                    System.out.println("Nose aceptan letras o decimales");
+                    lea.nextLine();
+                }
                 if(menu<1||menu>5){
                     System.out.println("Ingrese una de las opciones solicitadas.");
                 }
@@ -32,6 +37,9 @@ public class LaraSamuelE1 {
                     }catch(InputMismatchException e){
                         System.out.println("No puede ingresar letras o decimales");
                         lea.nextLine();
+                    }
+                    if(filas<=0){
+                        System.out.println("No puede ingresar numeros negativos");
                     }
                 }while(filas<=0);
                 for(int contador=1;contador<=filas;contador++){
@@ -67,7 +75,7 @@ public class LaraSamuelE1 {
                     vecesIngreso++;
                     promedio=suma/vecesIngreso;
                     do{
-                    System.out.println("Desea seguir ingresando numeros(SI/NO): ");
+                    System.out.print("Desea seguir ingresando numeros(SI/NO): ");
                     respuesta=lea.next().toLowerCase();
                     }while(!respuesta.equals("no")&&!respuesta.equals("si"));
                 }while(respuesta.equals("si"));
@@ -88,7 +96,7 @@ public class LaraSamuelE1 {
                 double total=0;
                 String pregunta="si";
                 System.out.print("Ingrese nombre del cliente: ");
-                String nombre=lea.next();
+                String nombre=lea.next().toUpperCase();
                 do{
                     do{
                         System.out.println("Tipos de canales: NORMAL/HD");
@@ -137,7 +145,7 @@ public class LaraSamuelE1 {
                 System.out.println("Total a pagar del cliente "+nombre+": L."+String.format("%.2f", total));
             }else if(menu==4){
                 int sumaVocales=0;
-                String palabra="";
+                String palabra;
                 System.out.print("Ingresar cadena de texto: ");
                 palabra=lea.next().toLowerCase();
                 
@@ -145,12 +153,7 @@ public class LaraSamuelE1 {
                     char letras=palabra.charAt(contador);
                     
                     switch(letras){
-                        case 'a':
-                        case 'e':
-                        case 'i':
-                        case 'o':
-                        case 'u':
-                            sumaVocales++;
+                        case 'a', 'e', 'i', 'o', 'u' -> sumaVocales++;
                     }
                 }
                 System.out.println("La palabra que se ingreso tiene "+sumaVocales+" vocales.");
