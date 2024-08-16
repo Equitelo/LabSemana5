@@ -35,7 +35,6 @@ public class LaraSamuelE1 {
                 double promedio=0;
                 String respuesta="no";
                 do{
-                    vecesIngreso++;
                     System.out.print("Ingresar numeros enteros: ");
                     int numeros=lea.nextInt();
                     
@@ -43,6 +42,7 @@ public class LaraSamuelE1 {
                         mayor=numeros;
                     }
                     suma+=numeros;
+                    vecesIngreso++;
                     promedio=suma/vecesIngreso;
                     System.out.println("Desea terminar de ingresar numeros?(SI/NO): ");
                     respuesta=lea.next().toLowerCase();
@@ -50,6 +50,66 @@ public class LaraSamuelE1 {
                 System.out.println("El numero mayor ingresado: "+mayor);
                 System.out.println("El promedio de los numeros ingresados: "+promedio);
             }else if(menu==3){
+                String canal;
+                //contadores
+                int normal=0;
+                int hd=0;
+                //
+                String digital;
+                //billete
+                int dinero=0;
+                //impuesto
+                double impuesto=0;
+                //total
+                double total=0;
+                String pregunta="si";
+                System.out.print("Ingrese nombre del cliente: ");
+                String nombre=lea.next();
+                do{
+                    do{
+                        System.out.println("Tipos de canales: NORMAL/HD");
+                        System.out.print("Ingrese tipo de canal: ");
+                        canal=lea.next().toUpperCase();
+                        if(!canal.equals("NORMAL")&&!canal.equals("HD")){
+                            System.out.println("Ingrese HD o Normal");
+                        }
+                    }while(!canal.equals("NORMAL")&&!canal.equals("HD"));
+                    if(canal.equals("NORMAL")){
+                        normal++;
+                        dinero+=20;
+                    }
+                    if(canal.equals("HD")){
+                        hd++;
+                        dinero+=30;
+                    }
+                    do{
+                    System.out.print("Desea otro canal?(SI/NO): ");
+                    pregunta=lea.next();
+                    }while(!pregunta.equals("no")&&!pregunta.equals("si"));
+                }while(pregunta.equalsIgnoreCase("si"));
+                do{
+                    System.out.print("Que tipo de caja digital desea: ");
+                    digital=lea.next().toUpperCase();
+                }while(!digital.equals("LIGHTBOX")&&!digital.equals("HDBOX")&&!digital.equals("DVRBOX"));
+                if(digital.equals("LIGHTBOX")){
+                    dinero+=50;
+                }
+                if(digital.equals("HDBOX")){
+                    dinero+=100;
+                }
+                if(digital.equals("DVRBOX")){
+                    dinero+=150;
+                }
+                impuesto=dinero*0.15;
+                //
+                total=dinero+impuesto;
+                //factura
+                System.out.println("");
+                System.out.println("NORMALES ingresados: "+normal);
+                System.out.println("HD ingresados: "+hd);
+                System.out.println("Subtotal a pagar: L."+dinero);
+                System.out.println("Impuesto con el 15%: L."+impuesto);
+                System.out.println("Total a pagar del cliente "+nombre+": L."+total);
             }else if(menu==4){
                 int sumaVocales=0;
                 String palabra="";
