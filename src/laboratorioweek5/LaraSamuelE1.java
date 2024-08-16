@@ -1,5 +1,6 @@
 package laboratorioweek5;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LaraSamuelE1 {
@@ -22,8 +23,32 @@ public class LaraSamuelE1 {
             }while(menu<1||menu>5);
             
             if(menu==1){
-            
+                int filas=0;
+                int numeros=1;
+                do{
+                    try{
+                    System.out.print("Ingresar el numero de filas: ");
+                    filas=lea.nextInt();
+                    }catch(InputMismatchException e){
+                        System.out.println("No puede ingresar letras o decimales");
+                        lea.nextLine();
+                    }
+                    if(filas<=0){
+                        System.out.println("No puede ingresar numeros negativos");
+                    }
+                }while(filas<=0);
+                for(int contador=1;contador<=filas;contador++){
+                    int suma=0;
+                    for(int espacio=1;espacio<=contador;espacio++){
+                        System.out.print(" "+numeros);
+                        suma+=numeros;
+                        numeros+=2;
+                    }
+                    System.out.println(" = "+suma);
+                }
             }else if(menu==2){
+                int numeros=0;
+                //mayor numero
                 int mayor=0;
                 //para promedio
                 int vecesIngreso=0;
@@ -31,17 +56,23 @@ public class LaraSamuelE1 {
                 double promedio=0;
                 String respuesta="no";
                 do{
+                    try{
                     System.out.print("Ingresar numeros enteros: ");
-                    int numeros=lea.nextInt();
-                    
+                    numeros=lea.nextInt();
+                    }catch(InputMismatchException e){
+                        System.out.println("No puede ingresar decimales y menos letras.");
+                        lea.nextLine();
+                    }
                     while(numeros>mayor){
                         mayor=numeros;
                     }
                     suma+=numeros;
                     vecesIngreso++;
                     promedio=suma/vecesIngreso;
+                    do{
                     System.out.println("Desea terminar de ingresar numeros?(SI/NO): ");
                     respuesta=lea.next().toLowerCase();
+                    }while(!respuesta.equals("no")&&!respuesta.equals("si"));
                 }while(respuesta.equals("no"));
                 System.out.println("El numero mayor ingresado: "+mayor);
                 System.out.println("El promedio de los numeros ingresados: "+promedio);
