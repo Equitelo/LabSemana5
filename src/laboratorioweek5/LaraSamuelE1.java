@@ -51,6 +51,24 @@ public class LaraSamuelE1 {
                 System.out.println("El promedio de los numeros ingresados: "+promedio);
             }else if(menu==3){
             }else if(menu==4){
+                int sumaVocales=0;
+                String palabra="";
+                System.out.print("Ingresar cadena de texto: ");
+                palabra=lea.next().toLowerCase();
+                
+                for(int contador=0;contador<palabra.length();contador++){
+                    char letras=palabra.charAt(contador);
+                    
+                    switch(letras){
+                        case 'a':
+                        case 'e':
+                        case 'i':
+                        case 'o':
+                        case 'u':
+                            sumaVocales++;
+                    }
+                }
+                System.out.println("La palabra que se ingreso tiene "+sumaVocales+" vocales.");
             }else{
                 System.out.println("HASTA LUEGO.");
             }
