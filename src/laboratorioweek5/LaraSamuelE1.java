@@ -54,7 +54,7 @@ public class LaraSamuelE1 {
                 int vecesIngreso=0;
                 int suma=0;
                 double promedio=0;
-                String respuesta="no";
+                String respuesta="si";
                 do{
                     try{
                     System.out.print("Ingresar numeros enteros: ");
@@ -70,12 +70,12 @@ public class LaraSamuelE1 {
                     vecesIngreso++;
                     promedio=suma/vecesIngreso;
                     do{
-                    System.out.println("Desea terminar de ingresar numeros?(SI/NO): ");
+                    System.out.println("Desea seguir ingresando numeros(SI/NO): ");
                     respuesta=lea.next().toLowerCase();
                     }while(!respuesta.equals("no")&&!respuesta.equals("si"));
-                }while(respuesta.equals("no"));
+                }while(respuesta.equals("si"));
                 System.out.println("El numero mayor ingresado: "+mayor);
-                System.out.println("El promedio de los numeros ingresados: "+promedio);
+                System.out.println("El promedio de los numeros ingresados: "+String.format("%.2f", promedio));
             }else if(menu==3){
                 String canal;
                 //contadores
@@ -136,8 +136,8 @@ public class LaraSamuelE1 {
                 System.out.println("NORMALES ingresados: "+normal);
                 System.out.println("HD ingresados: "+hd);
                 System.out.println("Subtotal a pagar: L."+dinero);
-                System.out.println("Impuesto con el 15%: L."+impuesto);
-                System.out.println("Total a pagar del cliente "+nombre+": L."+total);
+                System.out.println("Impuesto con el 15%: L."+String.format("%.2f", impuesto));
+                System.out.println("Total a pagar del cliente "+nombre+": L."+String.format("%.2f", total));
             }else if(menu==4){
                 int sumaVocales=0;
                 String palabra="";
